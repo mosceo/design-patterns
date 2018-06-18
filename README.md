@@ -1,3 +1,7 @@
 # Design Patterns
 
-Useful design patterns implemented in PHP.
+Most popular design patterns implemented in PHP.
+
+## List of patterns
+* Strategy
+* Observer
