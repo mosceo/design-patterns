@@ -13,7 +13,7 @@
 abstract class Beverage
 {
     abstract public function getDescription(): string;
-    abstract public function cost(): int;
+    abstract public function getCost(): int;
 }
 
 class Espresso extends Beverage
@@ -23,7 +23,7 @@ class Espresso extends Beverage
         return 'Espresso';
     }
 
-    public function cost(): int
+    public function getCost(): int
     {
         return 60;
     }
@@ -36,7 +36,7 @@ class Latte extends Beverage
         return 'Latté';
     }
 
-    public function cost(): int
+    public function getCost(): int
     {
         return 100;
     }
@@ -47,53 +47,49 @@ class Latte extends Beverage
 
 abstract class CondimentDecorator extends Beverage
 {
+    static protected $cost = 0;
+    static protected $name = 'Not defined';
+
     protected $beverage;
 
     public function __construct(Beverage $beverage)
     {
         $this->beverage = $beverage;
     }
+
+    public function getCost(): int
+    {
+        // Сложим стоимость напитка (или декорированного напитка) со стоимостью наполнителя
+        return $this->beverage->getCost() + static::$cost;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->beverage->getDescription()." (+ ".static::$name.")";
+    }
 }
 
 class Syrup extends CondimentDecorator
 {
-    public function getDescription(): string
-    {
-        return $this->beverage->getDescription() . " (+ Syrup)";
-    }
-
-    public function cost(): int
-    {
-        return $this->beverage->cost() + 20; // Сложим стоимость декорированного объекта со стоимостью наполнителя
-    }
+    static protected $cost = 20;
+    static protected $name = 'Syrup';
 }
 
 class Cream extends CondimentDecorator
 {
-    public function getDescription(): string
-    {
-        return $this->beverage->getDescription() . " (+ Cream)";
-    }
-
-    public function cost(): int
-    {
-        return $this->beverage->cost() + 50;
-    }
+    static protected $cost = 50;
+    static protected $name = 'Cream';
 }
 
 class Liquor extends CondimentDecorator
 {
-    public function getDescription(): string
-    {
-        return $this->beverage->getDescription() . " (+ Liquor)";
-    }
-
-    public function cost(): int
-    {
-        return $this->beverage->cost() + 100;
-    }
+    static protected $cost = 100;
+    static protected $name = 'Liquor';
 }
 
+/*
+ * Run
+ */
 
 $drinks = [
     new Latte(),
@@ -104,5 +100,5 @@ $drinks = [
 
 foreach ($drinks as $drink) {
     echo $drink->getDescription() . "\n";
-    echo $drink->cost() . "\n\n";
+    echo $drink->getCost() . "\n\n";
 }
