@@ -1,7 +1,8 @@
 Adapter Pattern
 ===============
 
-##Purpose
+Purpose
+-------
 
 Sometimes an object has one interface, but the client code expects another interface. We can wrap this object and build around it the interface the client code expects. This wrapper is called an adapter. An adapter translates one interface to another.
 
