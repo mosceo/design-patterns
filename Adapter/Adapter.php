@@ -13,11 +13,13 @@ class Adapter implements NewInterface
         $this->old = $old;
     }
 
+    // Originally it is a string, but we expect a number
     public function request1()
     {
         return (int)$this->old->specificRequest1();
     }
 
+    // Can't translate properly
     public function request2()
     {
         $ret = $this->old->specificRequest2();
@@ -25,6 +27,7 @@ class Adapter implements NewInterface
         return $ret[0];
     }
 
+    // Can't translate at all
     public function request3()
     {
         throw new UnsupportedOperationException();
