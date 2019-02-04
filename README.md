@@ -11,3 +11,4 @@ List of patterns
 * Command — encapsulate a request as an object and pass it around
 * Adapter — translate one interface to another the client code expects
 * Facade — make a simple interface to a complex subsystem
+* TemplateMethod — redefine certain steps of an algorithm in subclasses
