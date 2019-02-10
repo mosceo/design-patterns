@@ -12,4 +12,4 @@ List of patterns
 * Adapter — translate one interface to another the client code expects
 * Facade — make a simple interface to a complex subsystem
 * TemplateMethod — redefine certain steps of an algorithm in subclasses
-* Iterator — ...
+* Iterator — traverse a collection of objects
