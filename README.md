@@ -13,3 +13,4 @@ List of patterns
 * Facade — make a simple interface to a complex subsystem
 * TemplateMethod — redefine certain steps of an algorithm in subclasses
 * Iterator — traverse a collection of objects
+* Composite — construct a tree-like structure of objects of the same type
