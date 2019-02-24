@@ -2,7 +2,7 @@
 
 namespace DesignPatterns\Composite;
 
-class Composite implements Component
+class Composite implements State
 {
     protected $name;
     protected $components = [];
@@ -24,7 +24,7 @@ class Composite implements Component
         echo "------------------------\n";
     }
 
-    public function add(Component $component)
+    public function add(State $component)
     {
         $this->components[] = $component;
     }
@@ -34,7 +34,7 @@ class Composite implements Component
         array_splice($this->components, $i, 1);
     }
 
-    public function getChild(int $i): Component
+    public function getChild(int $i): State
     {
         return $this->components[$i];
     }

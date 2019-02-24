@@ -2,7 +2,7 @@
 
 namespace DesignPatterns\Composite;
 
-class Leaf implements Component
+class Leaf implements State
 {
     protected $name;
 
@@ -20,7 +20,7 @@ class Leaf implements Component
     // But we still make a leaf implement the same interface so that the client code
     // can treat these two types of objects uniformly.
 
-    public function add(Component $component)
+    public function add(State $component)
     {
         throw new \BadMethodCallException();
     }
@@ -30,7 +30,7 @@ class Leaf implements Component
         throw new \BadMethodCallException();
     }
 
-    public function getChild(int $i): Component
+    public function getChild(int $i): State
     {
         throw new \BadMethodCallException();
     }

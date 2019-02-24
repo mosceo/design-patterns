@@ -15,9 +15,9 @@ interface Component
     // These methods have to do with handling children.
     // A child can be both a composite object or a leaf.
 
-    public function add(Component $component);
+    public function add(State $component);
 
     public function remove(int $i);
 
-    public function getChild(int $i): Component;
+    public function getChild(int $i): State;
 }

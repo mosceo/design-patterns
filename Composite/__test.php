@@ -21,9 +21,9 @@ require_once __DIR__ . '/Leaf.php';
 
 $roman = new Composite('Roman');
 $dave = new Composite('Dave');
-$anna = new Leaf('Anna');
-$max = new Leaf('Max');
-$vlad = new Leaf('Vlad');
+$anna = new SateNormal('Anna');
+$max = new SateNormal('Max');
+$vlad = new SateNormal('Vlad');
 
 $dave->add($max);
 $dave->add($vlad);
